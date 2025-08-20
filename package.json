@@ -1,0 +1,10 @@
+{
+  "name": "playground-copilotkit",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@10.14.0"
+}

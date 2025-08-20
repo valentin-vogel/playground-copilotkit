@@ -1,11 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useTaskStore } from './store'
 import { CopilotSidebar } from '@copilotkit/react-ui'
 import { useCopilotReadable, useCopilotAction } from '@copilotkit/react-core'
 
 export default function Home() {
-  const [tasks, setTasks] = useState<string[]>(['Ship MVP'])
+  const tasks = useTaskStore((state) => state.tasks)
+  const addTask = useTaskStore((state) => state.addTask)
 
   useCopilotReadable({
     description: 'List of tasks currently visible in the UI',
@@ -23,7 +24,7 @@ export default function Home() {
         required: true,
       },
     ],
-    handler: async ({ title }) => setTasks((t) => [...t, title]),
+    handler: async ({ title }) => addTask(title),
   })
 
   return (
